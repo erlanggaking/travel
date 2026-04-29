@@ -1,0 +1,151 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  name      String?
+  phone     String?
+  location  String?
+  role      String    @default("CUSTOMER") // ADMIN, CUSTOMER
+  bookings  Booking[]
+  articles  Article[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model TourPackage {
+  id        String    @id @default(uuid())
+  title     String
+  location  String
+  duration  String
+  price     Float
+  rating    Float     @default(5.0)
+  imageUrl  String
+  tag       String    @default("RECOMMENDED")
+  quota     Int       @default(10)
+  bookings  Booking[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Hotel {
+  id            String    @id @default(uuid())
+  name          String
+  location      String
+  rating        Float
+  starRating    Int       @default(4)
+  pricePerNight Float
+  imageUrl      String
+  facilities    String    // Stored as JSON string or comma-separated
+  description   String?
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Flight {
+  id            String    @id @default(uuid())
+  airline       String
+  flightNumber  String
+  departureTime DateTime
+  arrivalTime   DateTime
+  origin        String
+  destination   String
+  price         Float
+  duration      String
+  logoUrl       String
+  class         String    @default("Economy")
+  isRefundable  Boolean   @default(false)
+  bookings      Booking[]
+  createdAt     DateTime  @default(now())
+}
+
+model Booking {
+  id            String   @id @default(uuid())
+  type          String   // TOUR, HOTEL, FLIGHT
+  status        String   @default("PENDING") // PENDING, PAID, CANCELLED, REFUNDED
+  totalPrice    Float
+  customerName  String   @default("")
+  customerEmail String   @default("")
+  customerPhone String   @default("")
+  productName   String   @default("")
+  notes         String?
+  
+  // Relations
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  
+  tour        TourPackage? @relation(fields: [tourId], references: [id])
+  tourId      String?
+  
+  hotel       Hotel? @relation(fields: [hotelId], references: [id])
+  hotelId     String?
+  
+  flight      Flight? @relation(fields: [flightId], references: [id])
+  flightId    String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Promo {
+  id         String   @id @default(uuid())
+  title      String
+  subtitle   String
+  imageUrl   String
+  color      String
+  link       String   @default("")
+  isActive   Boolean  @default(true)
+  validUntil DateTime?
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model Article {
+  id        String   @id @default(uuid())
+  title     String
+  content   String   @default("")
+  excerpt   String   @default("")
+  imageUrl  String   @default("")
+  status    String   @default("DRAFT") // DRAFT, PUBLISHED
+  author    User?    @relation(fields: [authorId], references: [id])
+  authorId  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Banner {
+  id        String   @id @default(uuid())
+  title     String
+  imageUrl  String
+  link      String   @default("")
+  isActive  Boolean  @default(true)
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Setting {
+  id    String @id @default(uuid())
+  key   String @unique
+  value String
+}
+
+model Expense {
+  id          String   @id @default(uuid())
+  title       String
+  amount      Float
+  category    String   @default("OPERATIONAL") // OPERATIONAL, MARKETING, SALARY, OTHER
+  notes       String?
+  date        DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
