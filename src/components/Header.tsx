@@ -46,10 +46,10 @@ export default function Header() {
           <div className="relative" ref={dropdownRef}>
             <div 
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="hidden lg:flex items-center text-sm font-bold text-gray-700 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded-xl transition-all"
+              className="flex items-center text-sm font-bold text-gray-700 cursor-pointer hover:bg-gray-50 px-2 lg:px-3 py-2 rounded-xl transition-all"
             >
-              <Globe size={18} className="mr-2 text-primary" />
-              <span className="uppercase">{language} | {currency}</span>
+              <Globe size={18} className="mr-1 lg:mr-2 text-primary" />
+              <span className="uppercase text-xs lg:text-sm">{language} | {currency}</span>
               <ChevronDown size={14} className={`ml-1 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
             </div>
 

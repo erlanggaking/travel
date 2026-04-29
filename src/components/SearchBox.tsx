@@ -171,12 +171,12 @@ export default function SearchBox({ initialCategory = "flight", compact = false 
         {activeCategory === "flight" && (
           <>
             <h2 className="text-2xl font-bold text-white mb-4 drop-shadow-md">{t("bookYourFlight")}</h2>
-            <div className="flex bg-white rounded-t-lg overflow-hidden border-t border-l border-r border-gray-200">
+            <div className="flex w-full bg-white rounded-t-lg overflow-hidden border-t border-l border-r border-gray-200">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setTripType(tab.id as TripType)}
-                  className={`px-6 py-3 text-sm font-semibold transition-colors border-r last:border-r-0 ${
+                  className={`flex-1 px-2 md:px-6 py-2.5 md:py-3 text-[11px] md:text-sm font-semibold transition-colors border-r last:border-r-0 ${
                     tripType === tab.id
                       ? "bg-[#00b18f] text-white"
                       : "bg-white text-gray-700 hover:bg-gray-50"
@@ -260,12 +260,12 @@ export default function SearchBox({ initialCategory = "flight", compact = false 
           <>
             {/* Multi-city Flight Tabs */}
             {tripType === "banyak-kota" && (
-          <div className="flex items-center gap-6 mb-6 border-b border-gray-100 pb-3">
+          <div className="flex items-center gap-6 mb-6 border-b border-gray-100 pb-3 overflow-x-auto no-scrollbar whitespace-nowrap w-full">
             {multiCityFlights.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActiveFlightIndex(idx)}
-                className={`flex items-center gap-2 text-xs font-bold transition-all relative pb-3 -mb-[13px] ${
+                className={`flex items-center gap-2 text-xs font-bold transition-all relative pb-3 -mb-[13px] whitespace-nowrap shrink-0 ${
                   activeFlightIndex === idx 
                     ? "text-[#00b18f] border-b-2 border-[#00b18f]" 
                     : "text-gray-400 hover:text-gray-600"
@@ -278,7 +278,7 @@ export default function SearchBox({ initialCategory = "flight", compact = false 
             {multiCityFlights.length < 5 && (
               <button 
                 onClick={addFlight}
-                className="flex items-center gap-2 text-xs font-bold text-[#00b18f] hover:text-[#009478] transition-all pb-3 -mb-[13px]"
+                className="flex items-center gap-2 text-xs font-bold text-[#00b18f] hover:text-[#009478] transition-all pb-3 -mb-[13px] whitespace-nowrap shrink-0"
               >
                 {t("addFlight")} <Plus size={14} />
               </button>
