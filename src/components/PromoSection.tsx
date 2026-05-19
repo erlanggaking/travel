@@ -81,9 +81,9 @@ export default function PromoSection() {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/40 to-transparent flex flex-col justify-center px-8 md:px-12">
-          <h3 className="text-xl md:text-3xl font-black text-white">Xperience Baru Setiap Hari</h3>
-          <p className="text-white/80 text-sm md:text-lg mt-1 max-w-lg">Cari aktivitas seru dan nikmati diskon khusus pengguna aplikasi.</p>
-          <button className="mt-4 w-fit bg-white text-blue-900 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-400 transition-colors">Lihat Detail</button>
+          <h3 className="text-xl md:text-3xl font-black text-white">{t("xperienceTitle")}</h3>
+          <p className="text-white/80 text-sm md:text-lg mt-1 max-w-lg">{t("xperienceSubtitle")}</p>
+          <button className="mt-4 w-fit bg-white text-blue-900 px-6 py-2 rounded-full font-bold text-sm hover:bg-yellow-400 transition-colors">{t("viewDetails")}</button>
         </div>
       </div>
     </section>

@@ -4,9 +4,11 @@ import { LayoutDashboard, PackageSearch, ShoppingBag, Settings, LogOut, Users, F
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useSettings } from "@/context/SettingsContext";
 
 export default function AdminSidebar() {
   const pathname = usePathname();
+  const { t } = useSettings();
   const [pendingCount, setPendingCount] = useState(0);
   const [showNotif, setShowNotif] = useState(false);
   const [lastCount, setLastCount] = useState(0);
@@ -33,20 +35,20 @@ export default function AdminSidebar() {
   }, [lastCount]);
 
   const links = [
-    { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
-    { name: "Orders", href: "/admin/orders", icon: ShoppingBag, badge: pendingCount },
-    { name: "Finance", href: "/admin/finance", icon: Wallet },
-    { name: "Inventory", href: "/admin/inventory", icon: PackageSearch },
-    { name: "Customers", href: "/admin/customers", icon: Users },
-    { name: "Content (CMS)", href: "/admin/cms", icon: FileText },
-    { name: "Settings", href: "/admin/settings", icon: Settings },
+    { name: t("dashboard"), href: "/admin", icon: LayoutDashboard },
+    { name: t("orders"), href: "/admin/orders", icon: ShoppingBag, badge: pendingCount },
+    { name: t("finance"), href: "/admin/finance", icon: Wallet },
+    { name: t("inventory"), href: "/admin/inventory", icon: PackageSearch },
+    { name: t("customers"), href: "/admin/customers", icon: Users },
+    { name: t("contentCMS"), href: "/admin/cms", icon: FileText },
+    { name: t("settings"), href: "/admin/settings", icon: Settings },
   ];
 
   return (
     <>
       {/* Mobile Top Bar */}
       <div className="md:hidden flex items-center justify-between bg-white border-b border-gray-200 px-4 py-3 sticky top-0 z-40 w-full">
-        <h2 className="text-lg font-bold text-primary flex items-center gap-2"><LayoutDashboard size={20}/> Flamboyan Admin</h2>
+        <h2 className="text-lg font-bold text-primary flex items-center gap-2"><LayoutDashboard size={20}/> {t("flamboyantAdmin")}</h2>
         <button onClick={() => setIsOpen(!isOpen)} className="p-1 text-gray-600 hover:bg-gray-100 rounded-md">
           <Menu size={24} />
         </button>
@@ -63,8 +65,8 @@ export default function AdminSidebar() {
       <aside className={`fixed md:sticky top-0 left-0 z-50 w-64 bg-white border-r border-gray-200 flex flex-col pt-4 h-screen transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0`}>
         <div className="px-6 mb-8 mt-2 flex justify-between items-center">
           <div>
-            <h2 className="text-xl font-bold text-primary">Flamboyan Admin</h2>
-            <p className="text-xs text-gray-500 mt-1">Superadmin Console</p>
+            <h2 className="text-xl font-bold text-primary">{t("flamboyantAdmin")}</h2>
+            <p className="text-xs text-gray-500 mt-1">{t("superadminConsole")}</p>
           </div>
           <button className="md:hidden text-gray-400 hover:text-gray-600" onClick={() => setIsOpen(false)}>
             &times;
@@ -101,7 +103,7 @@ export default function AdminSidebar() {
 
         <div className="p-4 border-t border-gray-200">
           <Link href="/" className="flex w-full items-center gap-3 px-4 py-3 text-red-600 hover:bg-red-50 font-semibold rounded-xl transition">
-            <LogOut size={20} /> Logout
+            <LogOut size={20} /> {t("logout")}
           </Link>
         </div>
 
@@ -113,8 +115,8 @@ export default function AdminSidebar() {
                 <Bell size={20} />
               </div>
               <div>
-                <p className="text-sm font-bold text-gray-800">Pesanan Baru!</p>
-                <p className="text-xs text-gray-500 mt-1">Ada {pendingCount} pesanan menunggu konfirmasi.</p>
+                <p className="text-sm font-bold text-gray-800">{t("newOrder")}</p>
+                <p className="text-xs text-gray-500 mt-1">{t("pendingOrders").replace("{count}", String(pendingCount))}</p>
               </div>
               <button onClick={() => setShowNotif(false)} className="text-gray-300 hover:text-gray-500 ml-auto text-lg leading-none">&times;</button>
             </div>
