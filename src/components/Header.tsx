@@ -4,6 +4,8 @@ import Link from "next/link";
 import { Search, Globe, User, ChevronDown, Check } from "lucide-react";
 import { useSettings } from "@/context/SettingsContext";
 import { useState, useRef, useEffect } from "react";
+import { languages } from "@/lib/languages";
+import { currencies } from "@/lib/currencies";
 
 export default function Header() {
   const { language, currency, setLanguage, setCurrency, t } = useSettings();
@@ -54,40 +56,44 @@ export default function Header() {
             </div>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-gray-100 p-2 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[80vh] overflow-y-auto">
                 <div className="p-3">
-                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">{language === "ID" ? "Bahasa" : "Language"}</p>
-                  <div className="space-y-1">
-                    {[
-                      { id: "ID", label: "Bahasa Indonesia", flag: "🇮🇩" },
-                      { id: "EN", label: "English", flag: "🇺🇸" }
-                    ].map((lang) => (
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">
+                    {language === "ID" ? "Bahasa" : "Language"}
+                  </p>
+                  <div className="space-y-1 max-h-64 overflow-y-auto">
+                    {languages.map((lang) => (
                       <button
-                        key={lang.id}
-                        onClick={() => { setLanguage(lang.id as any); setIsDropdownOpen(false); }}
+                        key={lang.code}
+                        onClick={() => { setLanguage(lang.code as any); setIsDropdownOpen(false); }}
                         className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition-all"
                       >
-                        <span className="flex items-center gap-2"><span>{lang.flag}</span> {lang.label}</span>
-                        {language === lang.id && <Check size={14} className="text-primary" />}
+                        <span className="flex items-center gap-2">
+                          <span>{lang.flag}</span> 
+                          <span className="text-left">{lang.name}</span>
+                        </span>
+                        {language === lang.code && <Check size={14} className="text-primary flex-shrink-0" />}
                       </button>
                     ))}
                   </div>
                 </div>
                 <div className="border-t border-gray-50 my-1"></div>
                 <div className="p-3">
-                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">{language === "ID" ? "Mata Uang" : "Currency"}</p>
-                  <div className="space-y-1">
-                    {[
-                      { id: "IDR", label: "Indonesian Rupiah", symbol: "Rp" },
-                      { id: "USD", label: "US Dollar", symbol: "$" }
-                    ].map((curr) => (
+                  <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-3">
+                    {language === "ID" ? "Mata Uang" : "Currency"}
+                  </p>
+                  <div className="space-y-1 max-h-64 overflow-y-auto">
+                    {currencies.map((curr) => (
                       <button
-                        key={curr.id}
-                        onClick={() => { setCurrency(curr.id as any); setIsDropdownOpen(false); }}
+                        key={curr.code}
+                        onClick={() => { setCurrency(curr.code as any); setIsDropdownOpen(false); }}
                         className="w-full flex items-center justify-between px-3 py-2 rounded-xl text-sm font-medium hover:bg-gray-50 transition-all"
                       >
-                        <span className="flex items-center gap-2"><span className="w-5 text-center font-bold text-gray-400">{curr.symbol}</span> {curr.label}</span>
-                        {currency === curr.id && <Check size={14} className="text-primary" />}
+                        <span className="flex items-center gap-2">
+                          <span className="w-6 text-center font-bold text-gray-400">{curr.symbol}</span> 
+                          <span className="text-left">{curr.name}</span>
+                        </span>
+                        {currency === curr.code && <Check size={14} className="text-primary flex-shrink-0" />}
                       </button>
                     ))}
                   </div>

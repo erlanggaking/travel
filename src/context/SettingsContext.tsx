@@ -2,8 +2,8 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Language = "ID" | "EN";
-type Currency = "IDR" | "USD";
+type Language = "ID" | "EN" | "ZH" | "ES" | "AR" | "HI" | "FR" | "RU" | "PT" | "DE" | "JA" | "KO" | "IT" | "TR" | "NL" | "TH" | "VI";
+type Currency = "IDR" | "USD" | "EUR" | "GBP" | "JPY" | "CNY" | "AUD" | "CAD" | "CHF" | "SGD" | "HKD" | "KRW" | "INR" | "MYR" | "THB" | "AED" | "SAR" | "BRL" | "MXN" | "RUB";
 
 interface SettingsContextType {
   language: Language;
@@ -284,13 +284,554 @@ const translations = {
     superadminConsole: "Superadmin Console",
     newOrder: "New Order!",
     pendingOrders: "There are {count} orders awaiting confirmation.",
-  }
+  },
+  
+  // Chinese (Simplified)
+  ZH: {
+    searchPlaceholder: "搜索航班、酒店等...",
+    loginRegister: "登录 / 注册",
+    popularPackages: "最受欢迎的旅游套餐",
+    startingFrom: "起价",
+    searchFlights: "搜索航班",
+    searchHotels: "搜索酒店",
+    searchTrains: "搜索火车",
+    searchBus: "搜索巴士",
+    searchCar: "搜索租车",
+    searchActivity: "搜索景点",
+    searchVisa: "搜索签证",
+    searchTours: "搜索旅游套餐",
+    limitedOffer: "限时优惠",
+    specialPromo: "特别促销",
+    specialPromoSub: "在售罄之前获得最优惠的价格！",
+    viewAll: "查看全部",
+    days: "天",
+    nights: "晚",
+    bestSeller: "最畅销",
+    topChoice: "首选",
+    luxury: "豪华",
+    recommended: "推荐",
+    flight: "航班",
+    hotel: "酒店",
+    train: "火车",
+    bus: "巴士",
+    car: "租车",
+    activity: "景点",
+    visa: "签证",
+    tours: "旅游套餐",
+    heroTitle: "您的世界，您的方式",
+    heroSubtitle: "一站式满足您下次冒险所需的一切。",
+  },
+  
+  // Spanish
+  ES: {
+    searchPlaceholder: "Buscar vuelos, hoteles, etc...",
+    loginRegister: "Iniciar sesión / Registrarse",
+    popularPackages: "Paquetes turísticos más populares",
+    startingFrom: "Desde",
+    searchFlights: "Buscar vuelos",
+    searchHotels: "Buscar hoteles",
+    searchTrains: "Buscar trenes",
+    searchBus: "Buscar autobuses",
+    searchCar: "Buscar alquiler de coches",
+    searchActivity: "Buscar atracciones",
+    searchVisa: "Buscar visa",
+    searchTours: "Buscar paquetes turísticos",
+    limitedOffer: "OFERTA LIMITADA",
+    specialPromo: "Promoción especial para ti",
+    specialPromoSub: "¡Consigue las mejores ofertas antes de que se agoten!",
+    viewAll: "Ver todo",
+    days: "Días",
+    nights: "Noches",
+    bestSeller: "MÁS VENDIDO",
+    topChoice: "MEJOR OPCIÓN",
+    luxury: "LUJO",
+    recommended: "RECOMENDADO",
+    flight: "Vuelos",
+    hotel: "Hoteles",
+    train: "Trenes",
+    bus: "Autobuses",
+    car: "Alquiler de coches",
+    activity: "Atracciones",
+    visa: "Visa",
+    tours: "Paquetes turísticos",
+    heroTitle: "Tu mundo, a tu manera",
+    heroSubtitle: "Todo lo que necesitas para tu próxima aventura en un solo lugar.",
+  },
+  
+  // Arabic
+  AR: {
+    searchPlaceholder: "ابحث عن رحلات، فنادق، إلخ...",
+    loginRegister: "تسجيل الدخول / التسجيل",
+    popularPackages: "باقات السفر الأكثر شعبية",
+    startingFrom: "ابتداءً من",
+    searchFlights: "بحث عن رحلات",
+    searchHotels: "بحث عن فنادق",
+    searchTrains: "بحث عن قطارات",
+    searchBus: "بحث عن حافلات",
+    searchCar: "بحث عن تأجير سيارات",
+    searchActivity: "بحث عن معالم سياحية",
+    searchVisa: "بحث عن تأشيرة",
+    searchTours: "بحث عن باقات سياحية",
+    limitedOffer: "عرض محدود",
+    specialPromo: "عرض خاص لك",
+    specialPromoSub: "احصل على أفضل العروض قبل نفادها!",
+    viewAll: "عرض الكل",
+    days: "أيام",
+    nights: "ليالي",
+    bestSeller: "الأكثر مبيعاً",
+    topChoice: "الخيار الأفضل",
+    luxury: "فاخر",
+    recommended: "موصى به",
+    flight: "رحلات",
+    hotel: "فنادق",
+    train: "قطارات",
+    bus: "حافلات",
+    car: "تأجير سيارات",
+    activity: "معالم سياحية",
+    visa: "تأشيرة",
+    tours: "باقات سياحية",
+    heroTitle: "عالمك، بطريقتك",
+    heroSubtitle: "كل ما تحتاجه لمغامرتك القادمة في مكان واحد.",
+  },
+  
+  // French
+  FR: {
+    searchPlaceholder: "Rechercher des vols, hôtels, etc...",
+    loginRegister: "Connexion / S'inscrire",
+    popularPackages: "Forfaits touristiques les plus populaires",
+    startingFrom: "À partir de",
+    searchFlights: "Rechercher des vols",
+    searchHotels: "Rechercher des hôtels",
+    searchTrains: "Rechercher des trains",
+    searchBus: "Rechercher des bus",
+    searchCar: "Rechercher une location de voiture",
+    searchActivity: "Rechercher des attractions",
+    searchVisa: "Rechercher un visa",
+    searchTours: "Rechercher des forfaits touristiques",
+    limitedOffer: "OFFRE LIMITÉE",
+    specialPromo: "Promotion spéciale pour vous",
+    specialPromoSub: "Obtenez les meilleures offres avant qu'elles ne disparaissent!",
+    viewAll: "Voir tout",
+    days: "Jours",
+    nights: "Nuits",
+    bestSeller: "MEILLEURE VENTE",
+    topChoice: "MEILLEUR CHOIX",
+    luxury: "LUXE",
+    recommended: "RECOMMANDÉ",
+    flight: "Vols",
+    hotel: "Hôtels",
+    train: "Trains",
+    bus: "Bus",
+    car: "Location de voiture",
+    activity: "Attractions",
+    visa: "Visa",
+    tours: "Forfaits touristiques",
+    heroTitle: "Votre monde, à votre façon",
+    heroSubtitle: "Tout ce dont vous avez besoin pour votre prochaine aventure en un seul endroit.",
+  },
+  
+  // Japanese
+  JA: {
+    searchPlaceholder: "フライト、ホテルなどを検索...",
+    loginRegister: "ログイン / 登録",
+    popularPackages: "人気のツアーパッケージ",
+    startingFrom: "から",
+    searchFlights: "フライトを検索",
+    searchHotels: "ホテルを検索",
+    searchTrains: "電車を検索",
+    searchBus: "バスを検索",
+    searchCar: "レンタカーを検索",
+    searchActivity: "アトラクションを検索",
+    searchVisa: "ビザを検索",
+    searchTours: "ツアーパッケージを検索",
+    limitedOffer: "期間限定オファー",
+    specialPromo: "特別プロモーション",
+    specialPromoSub: "売り切れる前に最高のお得な情報を手に入れよう！",
+    viewAll: "すべて表示",
+    days: "日",
+    nights: "泊",
+    bestSeller: "ベストセラー",
+    topChoice: "トップチョイス",
+    luxury: "ラグジュアリー",
+    recommended: "おすすめ",
+    flight: "フライト",
+    hotel: "ホテル",
+    train: "電車",
+    bus: "バス",
+    car: "レンタカー",
+    activity: "アトラクション",
+    visa: "ビザ",
+    tours: "ツアーパッケージ",
+    heroTitle: "あなたの世界、あなたの方法で",
+    heroSubtitle: "次の冒険に必要なすべてが一か所に。",
+  },
+  
+  // Korean
+  KO: {
+    searchPlaceholder: "항공편, 호텔 등 검색...",
+    loginRegister: "로그인 / 회원가입",
+    popularPackages: "가장 인기있는 여행 패키지",
+    startingFrom: "시작 가격",
+    searchFlights: "항공편 검색",
+    searchHotels: "호텔 검색",
+    searchTrains: "기차 검색",
+    searchBus: "버스 검색",
+    searchCar: "렌터카 검색",
+    searchActivity: "관광명소 검색",
+    searchVisa: "비자 검색",
+    searchTours: "여행 패키지 검색",
+    limitedOffer: "한정 특가",
+    specialPromo: "특별 프로모션",
+    specialPromoSub: "품절되기 전에 최고의 거래를 받으세요!",
+    viewAll: "모두 보기",
+    days: "일",
+    nights: "박",
+    bestSeller: "베스트셀러",
+    topChoice: "최고의 선택",
+    luxury: "럭셔리",
+    recommended: "추천",
+    flight: "항공편",
+    hotel: "호텔",
+    train: "기차",
+    bus: "버스",
+    car: "렌터카",
+    activity: "관광명소",
+    visa: "비자",
+    tours: "여행 패키지",
+    heroTitle: "당신의 세계, 당신의 방식으로",
+    heroSubtitle: "다음 모험에 필요한 모든 것을 한 곳에서.",
+  },
+  
+  // German
+  DE: {
+    searchPlaceholder: "Flüge, Hotels usw. suchen...",
+    loginRegister: "Anmelden / Registrieren",
+    popularPackages: "Beliebteste Reisepakete",
+    startingFrom: "Ab",
+    searchFlights: "Flüge suchen",
+    searchHotels: "Hotels suchen",
+    searchTrains: "Züge suchen",
+    searchBus: "Busse suchen",
+    searchCar: "Mietwagen suchen",
+    searchActivity: "Attraktionen suchen",
+    searchVisa: "Visum suchen",
+    searchTours: "Reisepakete suchen",
+    limitedOffer: "BEGRENZTES ANGEBOT",
+    specialPromo: "Sonderangebot für Sie",
+    specialPromoSub: "Holen Sie sich die besten Angebote, bevor sie weg sind!",
+    viewAll: "Alle anzeigen",
+    days: "Tage",
+    nights: "Nächte",
+    bestSeller: "BESTSELLER",
+    topChoice: "TOP-WAHL",
+    luxury: "LUXUS",
+    recommended: "EMPFOHLEN",
+    flight: "Flüge",
+    hotel: "Hotels",
+    train: "Züge",
+    bus: "Busse",
+    car: "Mietwagen",
+    activity: "Attraktionen",
+    visa: "Visum",
+    tours: "Reisepakete",
+    heroTitle: "Ihre Welt, auf Ihre Weise",
+    heroSubtitle: "Alles, was Sie für Ihr nächstes Abenteuer brauchen, an einem Ort.",
+  },
+  
+  // Portuguese
+  PT: {
+    searchPlaceholder: "Pesquisar voos, hotéis, etc...",
+    loginRegister: "Entrar / Registrar",
+    popularPackages: "Pacotes turísticos mais populares",
+    startingFrom: "A partir de",
+    searchFlights: "Pesquisar voos",
+    searchHotels: "Pesquisar hotéis",
+    searchTrains: "Pesquisar trens",
+    searchBus: "Pesquisar ônibus",
+    searchCar: "Pesquisar aluguel de carros",
+    searchActivity: "Pesquisar atrações",
+    searchVisa: "Pesquisar visto",
+    searchTours: "Pesquisar pacotes turísticos",
+    limitedOffer: "OFERTA LIMITADA",
+    specialPromo: "Promoção especial para você",
+    specialPromoSub: "Obtenha as melhores ofertas antes que acabem!",
+    viewAll: "Ver tudo",
+    days: "Dias",
+    nights: "Noites",
+    bestSeller: "MAIS VENDIDO",
+    topChoice: "MELHOR ESCOLHA",
+    luxury: "LUXO",
+    recommended: "RECOMENDADO",
+    flight: "Voos",
+    hotel: "Hotéis",
+    train: "Trens",
+    bus: "Ônibus",
+    car: "Aluguel de carros",
+    activity: "Atrações",
+    visa: "Visto",
+    tours: "Pacotes turísticos",
+    heroTitle: "Seu mundo, do seu jeito",
+    heroSubtitle: "Tudo o que você precisa para sua próxima aventura em um só lugar.",
+  },
+  
+  // Russian
+  RU: {
+    searchPlaceholder: "Поиск рейсов, отелей и т.д...",
+    loginRegister: "Войти / Зарегистрироваться",
+    popularPackages: "Самые популярные туристические пакеты",
+    startingFrom: "От",
+    searchFlights: "Поиск рейсов",
+    searchHotels: "Поиск отелей",
+    searchTrains: "Поиск поездов",
+    searchBus: "Поиск автобусов",
+    searchCar: "Поиск аренды автомобилей",
+    searchActivity: "Поиск достопримечательностей",
+    searchVisa: "Поиск визы",
+    searchTours: "Поиск туристических пакетов",
+    limitedOffer: "ОГРАНИЧЕННОЕ ПРЕДЛОЖЕНИЕ",
+    specialPromo: "Специальная акция для вас",
+    specialPromoSub: "Получите лучшие предложения, пока они не закончились!",
+    viewAll: "Посмотреть все",
+    days: "Дней",
+    nights: "Ночей",
+    bestSeller: "БЕСТСЕЛЛЕР",
+    topChoice: "ЛУЧШИЙ ВЫБОР",
+    luxury: "ЛЮКС",
+    recommended: "РЕКОМЕНДУЕТСЯ",
+    flight: "Рейсы",
+    hotel: "Отели",
+    train: "Поезда",
+    bus: "Автобусы",
+    car: "Аренда автомобилей",
+    activity: "Достопримечательности",
+    visa: "Виза",
+    tours: "Туристические пакеты",
+    heroTitle: "Ваш мир, по-вашему",
+    heroSubtitle: "Все, что вам нужно для следующего приключения, в одном месте.",
+  },
+  
+  // Hindi
+  HI: {
+    searchPlaceholder: "फ्लाइट, होटल आदि खोजें...",
+    loginRegister: "लॉगिन / रजिस्टर",
+    popularPackages: "सबसे लोकप्रिय टूर पैकेज",
+    startingFrom: "से शुरू",
+    searchFlights: "फ्लाइट खोजें",
+    searchHotels: "होटल खोजें",
+    searchTrains: "ट्रेन खोजें",
+    searchBus: "बस खोजें",
+    searchCar: "कार किराए पर लें",
+    searchActivity: "आकर्षण खोजें",
+    searchVisa: "वीजा खोजें",
+    searchTours: "टूर पैकेज खोजें",
+    limitedOffer: "सीमित ऑफर",
+    specialPromo: "आपके लिए विशेष प्रचार",
+    specialPromoSub: "समाप्त होने से पहले सर्वोत्तम सौदे प्राप्त करें!",
+    viewAll: "सभी देखें",
+    days: "दिन",
+    nights: "रातें",
+    bestSeller: "बेस्ट सेलर",
+    topChoice: "शीर्ष पसंद",
+    luxury: "लक्जरी",
+    recommended: "अनुशंसित",
+    flight: "फ्लाइट",
+    hotel: "होटल",
+    train: "ट्रेन",
+    bus: "बस",
+    car: "कार किराया",
+    activity: "आकर्षण",
+    visa: "वीजा",
+    tours: "टूर पैकेज",
+    heroTitle: "आपकी दुनिया, आपके तरीके से",
+    heroSubtitle: "आपके अगले साहसिक कार्य के लिए आवश्यक सब कुछ एक ही स्थान पर।",
+  },
+  
+  // Italian
+  IT: {
+    searchPlaceholder: "Cerca voli, hotel, ecc...",
+    loginRegister: "Accedi / Registrati",
+    popularPackages: "Pacchetti turistici più popolari",
+    startingFrom: "A partire da",
+    searchFlights: "Cerca voli",
+    searchHotels: "Cerca hotel",
+    searchTrains: "Cerca treni",
+    searchBus: "Cerca autobus",
+    searchCar: "Cerca noleggio auto",
+    searchActivity: "Cerca attrazioni",
+    searchVisa: "Cerca visto",
+    searchTours: "Cerca pacchetti turistici",
+    limitedOffer: "OFFERTA LIMITATA",
+    specialPromo: "Promozione speciale per te",
+    specialPromoSub: "Ottieni le migliori offerte prima che finiscano!",
+    viewAll: "Vedi tutto",
+    days: "Giorni",
+    nights: "Notti",
+    bestSeller: "PIÙ VENDUTO",
+    topChoice: "SCELTA MIGLIORE",
+    luxury: "LUSSO",
+    recommended: "RACCOMANDATO",
+    flight: "Voli",
+    hotel: "Hotel",
+    train: "Treni",
+    bus: "Autobus",
+    car: "Noleggio auto",
+    activity: "Attrazioni",
+    visa: "Visto",
+    tours: "Pacchetti turistici",
+    heroTitle: "Il tuo mondo, a modo tuo",
+    heroSubtitle: "Tutto ciò di cui hai bisogno per la tua prossima avventura in un unico posto.",
+  },
+  
+  // Turkish
+  TR: {
+    searchPlaceholder: "Uçuş, otel vb. ara...",
+    loginRegister: "Giriş Yap / Kayıt Ol",
+    popularPackages: "En Popüler Tur Paketleri",
+    startingFrom: "Başlangıç",
+    searchFlights: "Uçuş Ara",
+    searchHotels: "Otel Ara",
+    searchTrains: "Tren Ara",
+    searchBus: "Otobüs Ara",
+    searchCar: "Araç Kiralama Ara",
+    searchActivity: "Aktivite Ara",
+    searchVisa: "Vize Ara",
+    searchTours: "Tur Paketleri Ara",
+    limitedOffer: "SINIRLI TEKLIF",
+    specialPromo: "Sizin İçin Özel Promosyon",
+    specialPromoSub: "Bitmeden en iyi fırsatları yakalayın!",
+    viewAll: "Tümünü Gör",
+    days: "Gün",
+    nights: "Gece",
+    bestSeller: "EN ÇOK SATAN",
+    topChoice: "EN İYİ SEÇİM",
+    luxury: "LÜKS",
+    recommended: "ÖNERİLEN",
+    flight: "Uçuşlar",
+    hotel: "Oteller",
+    train: "Trenler",
+    bus: "Otobüsler",
+    car: "Araç Kiralama",
+    activity: "Aktiviteler",
+    visa: "Vize",
+    tours: "Tur Paketleri",
+    heroTitle: "Dünyanız, Sizin Tarzınızda",
+    heroSubtitle: "Bir sonraki maceranız için ihtiyacınız olan her şey tek bir yerde.",
+  },
+  
+  // Dutch
+  NL: {
+    searchPlaceholder: "Zoek vluchten, hotels, enz...",
+    loginRegister: "Inloggen / Registreren",
+    popularPackages: "Meest populaire reispakketten",
+    startingFrom: "Vanaf",
+    searchFlights: "Zoek vluchten",
+    searchHotels: "Zoek hotels",
+    searchTrains: "Zoek treinen",
+    searchBus: "Zoek bussen",
+    searchCar: "Zoek autoverhuur",
+    searchActivity: "Zoek attracties",
+    searchVisa: "Zoek visum",
+    searchTours: "Zoek reispakketten",
+    limitedOffer: "BEPERKTE AANBIEDING",
+    specialPromo: "Speciale promotie voor jou",
+    specialPromoSub: "Krijg de beste deals voordat ze op zijn!",
+    viewAll: "Bekijk alles",
+    days: "Dagen",
+    nights: "Nachten",
+    bestSeller: "BESTSELLER",
+    topChoice: "TOPKEUZE",
+    luxury: "LUXE",
+    recommended: "AANBEVOLEN",
+    flight: "Vluchten",
+    hotel: "Hotels",
+    train: "Treinen",
+    bus: "Bussen",
+    car: "Autoverhuur",
+    activity: "Attracties",
+    visa: "Visum",
+    tours: "Reispakketten",
+    heroTitle: "Jouw wereld, op jouw manier",
+    heroSubtitle: "Alles wat je nodig hebt voor je volgende avontuur op één plek.",
+  },
+  
+  // Thai
+  TH: {
+    searchPlaceholder: "ค้นหาเที่ยวบิน โรงแรม ฯลฯ...",
+    loginRegister: "เข้าสู่ระบบ / ลงทะเบียน",
+    popularPackages: "แพ็คเกจทัวร์ยอดนิยม",
+    startingFrom: "เริ่มต้นที่",
+    searchFlights: "ค้นหาเที่ยวบิน",
+    searchHotels: "ค้นหาโรงแรม",
+    searchTrains: "ค้นหารถไฟ",
+    searchBus: "ค้นหารถบัส",
+    searchCar: "ค้นหาเช่ารถ",
+    searchActivity: "ค้นหาสถานที่ท่องเที่ยว",
+    searchVisa: "ค้นหาวีซ่า",
+    searchTours: "ค้นหาแพ็คเกจทัวร์",
+    limitedOffer: "ข้อเสนอจำกัด",
+    specialPromo: "โปรโมชั่นพิเศษสำหรับคุณ",
+    specialPromoSub: "รับข้อเสนอที่ดีที่สุดก่อนที่จะหมด!",
+    viewAll: "ดูทั้งหมด",
+    days: "วัน",
+    nights: "คืน",
+    bestSeller: "ขายดีที่สุด",
+    topChoice: "ตัวเลือกยอดนิยม",
+    luxury: "หรูหรา",
+    recommended: "แนะนำ",
+    flight: "เที่ยวบิน",
+    hotel: "โรงแรม",
+    train: "รถไฟ",
+    bus: "รถบัส",
+    car: "เช่ารถ",
+    activity: "สถานที่ท่องเที่ยว",
+    visa: "วีซ่า",
+    tours: "แพ็คเกจทัวร์",
+    heroTitle: "โลกของคุณ ในแบบของคุณ",
+    heroSubtitle: "ทุกสิ่งที่คุณต้องการสำหรับการผจญภัยครั้งต่อไปในที่เดียว",
+  },
+  
+  // Vietnamese
+  VI: {
+    searchPlaceholder: "Tìm chuyến bay, khách sạn, v.v...",
+    loginRegister: "Đăng nhập / Đăng ký",
+    popularPackages: "Gói du lịch phổ biến nhất",
+    startingFrom: "Bắt đầu từ",
+    searchFlights: "Tìm chuyến bay",
+    searchHotels: "Tìm khách sạn",
+    searchTrains: "Tìm tàu hỏa",
+    searchBus: "Tìm xe buýt",
+    searchCar: "Tìm thuê xe",
+    searchActivity: "Tìm điểm tham quan",
+    searchVisa: "Tìm visa",
+    searchTours: "Tìm gói du lịch",
+    limitedOffer: "ƯU ĐÃI CÓ HẠN",
+    specialPromo: "Khuyến mãi đặc biệt cho bạn",
+    specialPromoSub: "Nhận ưu đãi tốt nhất trước khi hết!",
+    viewAll: "Xem tất cả",
+    days: "Ngày",
+    nights: "Đêm",
+    bestSeller: "BÁN CHẠY NHẤT",
+    topChoice: "LỰA CHỌN HÀNG ĐẦU",
+    luxury: "CAO CẤP",
+    recommended: "ĐƯỢC ĐỀ XUẤT",
+    flight: "Chuyến bay",
+    hotel: "Khách sạn",
+    train: "Tàu hỏa",
+    bus: "Xe buýt",
+    car: "Thuê xe",
+    activity: "Điểm tham quan",
+    visa: "Visa",
+    tours: "Gói du lịch",
+    heroTitle: "Thế giới của bạn, theo cách của bạn",
+    heroSubtitle: "Mọi thứ bạn cần cho cuộc phiêu lưu tiếp theo ở một nơi.",
+  },
 };
+
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("ID");
   const [currency, setCurrency] = useState<Currency>("IDR");
-  const [exchangeRate, setExchangeRate] = useState(0.000063); // Default fallback
+  const [exchangeRates, setExchangeRates] = useState<Record<string, number>>({});
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") as Language;
@@ -298,16 +839,26 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     if (savedLang) setLanguage(savedLang);
     if (savedCurr) setCurrency(savedCurr);
 
-    // Fetch real-time exchange rate
+    // Fetch real-time exchange rates for all currencies
     fetch("https://open.er-api.com/v6/latest/IDR")
       .then(res => res.json())
       .then(data => {
-        if (data.rates && data.rates.USD) {
-          setExchangeRate(data.rates.USD);
-          console.log("Real-time Rate IDR to USD:", data.rates.USD);
+        if (data.rates) {
+          setExchangeRates(data.rates);
+          console.log("Exchange rates loaded successfully");
         }
       })
-      .catch(err => console.error("Failed to fetch exchange rate:", err));
+      .catch(err => {
+        console.error("Failed to fetch exchange rates:", err);
+        // Fallback rates if API fails
+        setExchangeRates({
+          USD: 0.000063, EUR: 0.000059, GBP: 0.000051, JPY: 0.0095,
+          CNY: 0.00046, AUD: 0.000098, CAD: 0.000088, CHF: 0.000056,
+          SGD: 0.000085, HKD: 0.00049, KRW: 0.084, INR: 0.0053,
+          MYR: 0.00029, THB: 0.0023, AED: 0.00023, SAR: 0.00024,
+          BRL: 0.00038, MXN: 0.0013, RUB: 0.0061
+        });
+      });
   }, []);
 
   const handleSetLanguage = (lang: Language) => {
@@ -321,24 +872,43 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   };
 
   const formatPrice = (price: number) => {
-    if (currency === "USD") {
-      const usdPrice = price * exchangeRate;
-      return new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        minimumFractionDigits: 2,
-      }).format(usdPrice);
-    } else {
-      return new Intl.NumberFormat("id-ID", {
-        style: "currency",
-        currency: "IDR",
-        minimumFractionDigits: 0,
-      }).format(price).replace(/,00$/, "");
-    }
+    const rate = exchangeRates[currency] || 0.000063;
+    const convertedPrice = currency === "IDR" ? price : price * rate;
+    
+    // Get currency locale
+    const currencyLocales: Record<string, string> = {
+      IDR: "id-ID", USD: "en-US", EUR: "de-DE", GBP: "en-GB",
+      JPY: "ja-JP", CNY: "zh-CN", AUD: "en-AU", CAD: "en-CA",
+      CHF: "de-CH", SGD: "en-SG", HKD: "zh-HK", KRW: "ko-KR",
+      INR: "hi-IN", MYR: "ms-MY", THB: "th-TH", AED: "ar-AE",
+      SAR: "ar-SA", BRL: "pt-BR", MXN: "es-MX", RUB: "ru-RU"
+    };
+    
+    const locale = currencyLocales[currency] || "en-US";
+    
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: currency,
+      minimumFractionDigits: currency === "IDR" || currency === "JPY" || currency === "KRW" ? 0 : 2,
+    }).format(convertedPrice);
   };
 
   const t = (key: keyof typeof translations.ID) => {
-    return translations[language][key] || translations.ID[key] || key;
+    // Try to get translation for current language, fallback to English, then to key itself
+    const currentLangTranslation = translations[language as keyof typeof translations] as Record<string, string> | undefined;
+    if (currentLangTranslation && currentLangTranslation[key]) {
+      return currentLangTranslation[key];
+    }
+    // Fallback to English
+    if (translations.EN && translations.EN[key]) {
+      return translations.EN[key];
+    }
+    // Fallback to Indonesian
+    if (translations.ID && translations.ID[key]) {
+      return translations.ID[key];
+    }
+    // Last resort: return the key itself
+    return key;
   };
 
   return (
